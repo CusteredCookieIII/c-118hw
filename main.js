@@ -1,8 +1,8 @@
 counter=0;
-
-
+const doodles=["sun", "square", "snowflake", "mug", "rollor coster"];
+score=0;
 function setup() {
-    canvas = createCanvas(280, 280);
+    canvas = createCanvas(250, 250);
     canvas.center();
     background("white");
     canvas.mouseReleased(classifyCanvas);
@@ -43,12 +43,55 @@ function gotResult(error, results) {
 }
 
 function start_timer(){
- counter++;
- 
- if(counter>400){
-    counter=0;
-    
- }
+object = Math.floor(Math.random() * 5);
+clock = setInterval(interval, 1000);
+console.log(object);
+doodle = doodles[object];
+document.getElementById("thing").innerHTML = doodle;
+
 
 }
 
+function interval(){
+    counter++;
+    document.getElementById("number").innerHTML = counter;
+    console.log(counter);
+    console.log(score); 
+    if(counter==20){
+        background("white");
+        clearInterval(clock);
+        counter=0;
+    }
+
+    if(object==0 && "thing"=="label sun")
+    {
+        score++;
+        document.getElementById("points").innerHTML = score;
+    }
+
+    if(object==1 && "thing"=="label square")
+    {
+        score++;
+        document.getElementById("points").innerHTML = score;
+    }
+
+    if(object==2 && "thing"=="label snowflake")
+    {
+        score++;
+        document.getElementById("label points").innerHTML = score;
+    }
+
+    if(object==3 && "thing"=="label mug")
+    {
+        score++;
+        document.getElementById("points").innerHTML = score;
+    }
+
+    if(object==4 && "thing"=="label roller_coaster")
+    {
+        score++;
+        score++;
+        document.getElementById("points").innerHTML = score;
+    }
+    
+}
